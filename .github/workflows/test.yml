@@ -64,18 +64,22 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       # Set up Kiss runtimes:
-      # haxe
-      - uses: krdlab/setup-haxe@v1.4.1
-        with:
-          haxe-version: ${{ matrix.haxe-version }}
+
       # nodejs
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+
+      # lix
+      - uses: lix-pm/setup-lix@1.0.0
+        with:
+          lix-version: 15.8.9
+
       # python
       - uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+
       # mono
       - run: brew install mono || brew link --overwrite mono
         if: ${{ matrix.os == 'macos-latest' }}
@@ -89,8 +93,7 @@ jobs:
           sudo apt update
           sudo apt install mono-devel
         if: ${{ matrix.os == 'ubuntu-latest' }}
-      # output debug info
-      - run: haxe -version
+
       # run target test:
       - run: echo "${{ matrix.test-target }}" >> $GITHUB_ENV
       - run: ./test.sh
