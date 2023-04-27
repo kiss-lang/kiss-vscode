@@ -11,33 +11,52 @@ jobs:
         node-version: ['14']
         python-version: ['3.x']
         test-target: 
+          # HAXE TARGETS
+
           - KISS_TARGET=cpp
-          # - KISS_TARGET=cs
+          # TODO # - KISS_TARGET=cs
           - KISS_TARGET=interp
           - KISS_TARGET=js
           - KISS_TARGET=nodejs
           - KISS_TARGET=py
-          - KISS_PROJECT=aoc
-          # TODO bump-version
-          - KISS_PROJECT=flixel-desktop-habit-puzzle-game
-          # TODO hollywoo
-          # TODO hollywoo-flixel
-          # TODO iso-rpg-engine
+
+          # STANDALONE PROJECTS
+
+          - KISS_PROJECT=_standalone/aoc
+          # TODO # - KISS_PROJECT=_standalone/duplicate-text-editor
+          - KISS_PROJECT=_standalone/habit-puzzles
+          # TODO # - KISS_PROJECT=_standalone/iso-rpg-engine
+          - KISS_PROJECT=_standalone/kiss-cli-tests
+          - KISS_PROJECT=_standalone/kiss-vscode
+          # TODO # - KISS_PROJECT=_standalone/ksr-express
+          # TODO # - KISS_PROJECT=_standalone/ktxt2
+          - KISS_PROJECT=_standalone/nat-flixel-playground
+          - KISS_PROJECT=_standalone/nat-globelet-playground
+          - KISS_PROJECT=_standalone/nat-godot-playground
+          - KISS_PROJECT=_standalone/pdf-salad
+          # TODO # - KISS_PROJECT=_standalone/smart-stretch-reminder
+          # TODO # - KISS_PROJECT=_standalone/tig-spy
+
+          # HAXELIBS
+
+          - KISS_PROJECT=bad-nlp
+          # TODO # - KISS_PROJECT=bump-version
+          # TODO # - KISS_PROJECT=hollywoo
+          # TODO # - KISS_PROJECT=hollywoo-flixel
           - KISS_PROJECT=kill-carriage-return
-          # TODO kiss-express
-          - KISS_PROJECT=kiss-cli-tests
-          # TODO kiss-flixel
+          # TODO # - KISS_PROJECT=kiss-express
+          # TODO # - KISS_PROJECT=kiss-firefox
+          # TODO # - KISS_PROJECT=kiss-flixel
+          # TODO # - KISS_PROJECT=kiss-godot
+          # TODO # - KISS_PROJECT=kiss-spaced-rep
           - KISS_PROJECT=kiss-tools
-          - KISS_PROJECT=kiss-vscode
-          # TODO lets-read
+          # TODO # - KISS_PROJECT=kiss-vscode-api
+          # TODO # - KISS_PROJECT=lets-read
           - KISS_PROJECT=nat-archive-tool
-          - KISS_PROJECT=nat-flixel-desktop-playground
-          - KISS_PROJECT=nat-godot-playground
-          - KISS_PROJECT=nat-globelet-playground
-          - KISS_PROJECT=pdf-salad
-          # TODO prokgen
-          # TODO re-flex
+          # TODO # - KISS_PROJECT=prokgen
+          # TODO # - KISS_PROJECT=re-flex
           # skip requests-externs
+
       fail-fast: true
     runs-on: ${{ matrix.os }}
     env:
