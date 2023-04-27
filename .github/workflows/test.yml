@@ -71,7 +71,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       # lix
-      - uses: kiss-lang/setup-lix@1.0.0
+      - uses: kiss-lang/setup-lix@main
         with:
           lix-version: 15.8.9
 
