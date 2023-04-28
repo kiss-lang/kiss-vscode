@@ -1,0 +1,5 @@
+# @install: lix --silent download "gh://github.com/kiss-lang/re-flex#4a7f6b0f3024e36c02b15daf3f50ab219599ecd8" into re-flex/0.0.0/github/4a7f6b0f3024e36c02b15daf3f50ab219599ecd8
+# @run: haxelib run-dir re-flex "${HAXE_LIBCACHE}/re-flex/0.0.0/github/4a7f6b0f3024e36c02b15daf3f50ab219599ecd8"
+-lib kiss
+-cp ${HAXE_LIBCACHE}/re-flex/0.0.0/github/4a7f6b0f3024e36c02b15daf3f50ab219599ecd8/src/
+-D re-flex=0.0.0
