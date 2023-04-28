@@ -1,3 +1,0 @@
--lib hxnodejs
---js bin/nodejs/test.js
---cmd node bin/nodejs/test.js

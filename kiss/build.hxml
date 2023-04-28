@@ -1,6 +1,0 @@
--cp src
--lib hscript
--lib uuid
--lib tink_macro
---main kiss.Main
---interp

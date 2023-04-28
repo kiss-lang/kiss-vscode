@@ -1,8 +1,0 @@
-(var &mut staticCount 0)
-(var &mut instanceCount 0)
-
-(method new []
-    (once
-        (+= staticCount 1))
-    (oncePerInstance
-        (+= instanceCount 1)))

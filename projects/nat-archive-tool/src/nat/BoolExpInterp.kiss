@@ -1,5 +1,0 @@
-(function eval [:String expStr :Array<String> activeConditions]
-    (let [interp (new BoolExpInterp)]
-        (doFor condition activeConditions
-            (interp.variables.set condition true))
-        ?(interp.evalKiss expStr)))

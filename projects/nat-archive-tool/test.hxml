@@ -1,6 +1,0 @@
--D test
--lib kiss
--lib nat-archive-tool
--lib requests-externs
--cp test
---main test.TestMain
