@@ -31,7 +31,7 @@ jobs:
           # TODO # - KISS_PROJECT=_standalone/ksr-express
           # TODO # - KISS_PROJECT=_standalone/ktxt2
           - KISS_PROJECT=_standalone/nat-flixel-playground
-          - KISS_PROJECT=_standalone/nat-globelet-playground
+          # DEPRECATED # - KISS_PROJECT=_standalone/nat-globelet-playground
           - KISS_PROJECT=_standalone/nat-godot-playground
           - KISS_PROJECT=_standalone/pdf-salad
           # TODO # - KISS_PROJECT=_standalone/smart-stretch-reminder
