@@ -1,11 +1,8 @@
 {
-	"main": "requests_externs.Main",
 	"name": "requests-externs",
 	"description": "barebones python requests",
 	"classPath": "src/",
-	"dependencies": {
-		"kiss": ""
-	},
+	"dependencies": {},
 	"url": "https://github.com/NQNStudios/kisslang",
 	"contributors": [
 		"NQNStudios"
