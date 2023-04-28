@@ -1,0 +1,4 @@
+# @install: lix --silent download "haxelib:/godot#3.4.1" into godot/3.4.1/haxelib
+-cp ${HAXE_LIBCACHE}/godot/3.4.1/haxelib/
+-D godot=3.4.1
+-D unsafe

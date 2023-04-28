@@ -1,0 +1,9 @@
+# @install: lix --silent download "gh://github.com/kiss-lang/nat-archive-tool#4ba1ea8ab8202f66463bbce2cf51c17f3deb6ccb" into nat-archive-tool/0.0.0/github/4ba1ea8ab8202f66463bbce2cf51c17f3deb6ccb
+# @run: haxelib run-dir nat-archive-tool "${HAXE_LIBCACHE}/nat-archive-tool/0.0.0/github/4ba1ea8ab8202f66463bbce2cf51c17f3deb6ccb"
+-lib kiss
+-lib kiss-tools
+-lib requests-externs
+-lib tink_json
+-lib uuid
+-cp ${HAXE_LIBCACHE}/nat-archive-tool/0.0.0/github/4ba1ea8ab8202f66463bbce2cf51c17f3deb6ccb/src/
+-D nat-archive-tool=0.0.0
