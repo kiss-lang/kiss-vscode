@@ -15,6 +15,7 @@ then
     ./test-project.sh
 # Test Kiss with utest cases in kiss/src/test/cases
 else
+    git clone https://github.com/kiss-lang/kiss
     if [ ! -z "$2" ]; then
         haxe -D cases=$2 kiss/build-scripts/common-args.hxml kiss/build-scripts/common-test-args.hxml kiss/build-scripts/$KISS_TARGET/test.hxml
     else
