@@ -72,7 +72,7 @@ jobs:
       # lix
       - uses: kiss-lang/setup-lix@main
         with:
-          lix-version: 15.8.9
+          lix-version: 15.12.0
 
       # python
       - uses: actions/setup-python@v4
