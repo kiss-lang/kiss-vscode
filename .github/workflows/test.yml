@@ -5,6 +5,7 @@ on: [push, pull_request]
 jobs:
   test-core:
     strategy:
+      # fail-fast: true
       matrix:
         os: [ubuntu-latest]
         haxe-version: [4.3.0]
@@ -56,8 +57,6 @@ jobs:
           # TODO # - KISS_PROJECT=prokgen
           # TODO # - KISS_PROJECT=re-flex
           # skip requests-externs
-
-      fail-fast: true
     runs-on: ${{ matrix.os }}
     env:
       CI_OS_NAME: ${{ matrix.os }}
