@@ -15,7 +15,7 @@ else
         git clone https://github.com/kiss-lang/kiss
         (cd kiss && lix download)
         if [ "$KISS_TARGET" = cpp ]; then
-            lib install haxelib:hxcpp
+            lix install haxelib:hxcpp
         elif [ "$KISS_TARGET" = nodejs ]; then
             lix install haxelib:hxnodejs
         fi
