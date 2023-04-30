@@ -1,3 +1,0 @@
-# @install: lix --silent download "gh://github.com/kiss-lang/requests-externs#4f059d6ee51643a3761d2ca2eae88f1f369dd443" into requests-externs/0.0.0/github/4f059d6ee51643a3761d2ca2eae88f1f369dd443
--cp ${HAXE_LIBCACHE}/requests-externs/0.0.0/github/4f059d6ee51643a3761d2ca2eae88f1f369dd443/src/
--D requests-externs=0.0.0
