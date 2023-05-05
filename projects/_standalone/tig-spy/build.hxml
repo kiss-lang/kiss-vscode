@@ -1,6 +1,6 @@
 -lib kiss
 -lib kiss-firefox
--lib webextension-polyfill
+-cp externs
 -cp src
 -dce full
 --each

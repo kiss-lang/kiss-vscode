@@ -1,0 +1,4 @@
+# @install: lix --silent download "gh://github.com/kiss-lang/kiss-firefox#2281518805873d8ebafe938f7b7641d87ea20571" into kiss-firefox/0.0.0/github/2281518805873d8ebafe938f7b7641d87ea20571
+-lib kiss
+-cp ${HAXE_LIBCACHE}/kiss-firefox/0.0.0/github/2281518805873d8ebafe938f7b7641d87ea20571/src/
+-D kiss-firefox=0.0.0

@@ -11,6 +11,6 @@
 	},
 	"version": "0.0.0",
 	"scripts": {
-		"postinstall": "dts2hx --all"
+		"postinstall": "dts2hx --all --noLibWrap"
 	}
 }

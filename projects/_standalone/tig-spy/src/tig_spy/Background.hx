@@ -6,4 +6,8 @@ import haxe.Constraints;
 import tig_spy.Message;
 
 @:build(kiss.Kiss.build())
-class Background {}
+class Background {
+    static function main() {
+        _main();
+    }
+}
