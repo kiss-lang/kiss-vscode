@@ -30,7 +30,7 @@
                 (for [idx post] (enumerate (postElements document))
                     (let [links (post.getElementsByTagName "a")
                             userLink (links.item (min idx 1))]
-                        userLink.innerHTML)))))
+                        userLink.href)))))
 
 (function printPostStats [:Array<String> authors]
     (let [:String subjectLine .innerHTML (document.getElementById "top_subject")
@@ -53,6 +53,47 @@
         (print "$updates updates by OP")
         (print "$replies replies by $(count repliers) followers")))
 
+// Mute losers:
+(window.addEventListener "load"
+    ->:Void 
+        (awaitLet [mutedIds (API.browser.storage.sync.get (object mutedIds []))
+                    &sync posts (postElements document)]
+            (doFor [idx post] (enumerate posts)
+                (let [links (post.getElementsByTagName "a")
+                        authorLink (links.item (min idx 1))
+                        authorId authorLink.href
+                        :Array<String> mutedIds (dictGet mutedIds "mutedIds")
+                        isMuted (mutedIds.contains authorId)
+                        authorName authorLink.innerHTML
+                        muteLink (document.createElement "a")]
+                    (set muteLink.innerHTML "$?(if isMuted "un")mute")
+                    (muteLink.addEventListener "click"  
+                        (if isMuted
+                                // unmute
+                                ->:Void {
+                                    (mutedIds.remove authorId)
+                                    (API.browser.storage.sync.set (objectWith mutedIds))
+                                    (set window.location.href window.location.href)
+                                }
+                            // mute
+                            ->:Void {
+                                (mutedIds.push authorId)
+                                (API.browser.storage.sync.set (objectWith mutedIds))
+                                (set window.location.href window.location.href)
+                            }))
+                    (authorLink.parentElement.prepend (document.createElement "br"))
+                    (authorLink.parentElement.prepend muteLink)
+                    (when isMuted
+                        (let [message "I am muted by tig-spy! :)"
+                                [avatarElement] (post.getElementsByClassName "avatar")
+                                :js.html.Element avatarParent avatarElement.parentElement
+                                [postElement] (post.getElementsByClassName "post")
+                                [signatureElement] (post.getElementsByClassName "signature")]
+                            (avatarParent.removeChild avatarElement)
+                            (set postElement.innerHTML message)
+                            (set signatureElement.innerHTML message)))))))
+
+// Link at the top of page 1 to run analytics:
 (cond
     ((StringTools.endsWith window.location.href ".0")
         (let [analyticsLink (document.createElement "a")]

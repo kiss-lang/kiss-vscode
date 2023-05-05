@@ -23,8 +23,14 @@
 	],
 	"permissions": [
 		"<all_urls>",
-		"tabs"
+		"tabs",
+		"storage"
 	],
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "{d6411b81-d2d8-439e-bf23-3c6856af71b8}"
+		}
+	},
 	"version": "0.0",
 	"manifest_version": 2
 }
