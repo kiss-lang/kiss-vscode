@@ -2,8 +2,18 @@
     (API.browser.runtime.onMessage.addListener ->[:Message message sender sendResponse] 
         (let [:Function sendResponse sendResponse]
             (case message
-                ((object type "download" data [url])
-                    // TODO awaitLet the DownloadItem and send a nativemessage with the path and credit info
-                    (API.browser.downloads.download (objectWith [saveAs true] url)))
+                ((object type "download" data [imageInfo])
+                    // awaitLet the DownloadItem and make an object url with the source info
+                    (awaitLet [dlItemId (API.browser.downloads.download (object saveAs true url imageInfo.largeImageURL))
+                                dlItems (API.browser.downloads.search (object id dlItemId))]
+                        (let [dlItem (first dlItems)
+                                fileName dlItem.filename
+                                txtFileName "$(Path.withoutDirectory (Path.withoutExtension fileName)).txt"
+                                txtContent "${imageInfo.pageURL}\t${imageInfo.user}\t${imageInfo.user_id}"
+                                file (new File [txtContent] txtFileName)
+                                txtUrl (URL.createObjectURL file)]
+                            (awaitLet [txtDownloadId (API.browser.downloads.download (object url txtUrl filename txtFileName))]
+                                (catch [e] (sendResponse e))
+                                (API.browser.downloads.show txtDownloadId)))))
                 (never otherwise))
             true)))

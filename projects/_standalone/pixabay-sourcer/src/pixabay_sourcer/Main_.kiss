@@ -29,7 +29,8 @@
         (request.send)))
 
 (function handleInfo [:Dynamic info]
-    (API.browser.runtime.sendMessage (object type "download" data [.largeImageURL (first info.hits)])))
+    (awaitLet [response (API.browser.runtime.sendMessage (object type "download" data [(first info.hits)]))]
+        (print response)))
 
 (window.addEventListener "load"
     ->:Void
