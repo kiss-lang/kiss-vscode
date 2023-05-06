@@ -1,0 +1,50 @@
+(import kiss_firefox.API)
+(import js.lib.Promise)
+(importAs js.html.XMLHttpRequest XHR)
+(import pixabay_sourcer.Message)
+(var :Dynamic document js.Lib.global.document)
+(var :Dynamic window js.Lib.global.window)
+
+(var PIXABAY_PUBLIC_KEY "24159230-ce68ffe06827131f3f991f4f6")
+(var API_URL "https://pixabay.com/api/")
+
+(function syncedStorage []
+    (API.browser.storage.sync.get (object queries (new Map<String,Dynamic>))))
+
+(function queryId [:String id :Map<String,Dynamic> cache]
+    (let [request (new XHR)
+            apiQuery "${API_URL}?key=${PIXABAY_PUBLIC_KEY}&id=$id"]
+        (request.open "GET" apiQuery)
+        (request.addEventListener "readystatechange"
+            ->:Void
+                (cond
+                    ((and (= request.readyState 4) (= request.status 200))
+                        (let [data (haxe.Json.parse request.responseText)]
+                            (dictSet cache id data)
+                            (API.browser.storage.sync.set (object queries cache))
+                            (handleInfo data)))
+                    ((= request.readyState 4)
+                        // TODO report failure
+                        )))
+        (request.send)))
+
+(function handleInfo [:Dynamic info]
+    (API.browser.runtime.sendMessage (object type "download" data [.largeImageURL (first info.hits)])))
+
+(window.addEventListener "load"
+    ->:Void
+        (awaitLet [storage (syncedStorage)]
+            (let [:Map<String,Dynamic> cachedResults (dictGet storage "queries")
+                    :String url window.location.href
+                    parts (url.split "/")
+                    _ (parts.pop)
+                    titleAndId (parts.pop)
+                    id (.pop (titleAndId.split "-"))
+                    sourceLink (document.createElement "a")]
+                (set sourceLink.innerHTML "Source this image")
+                (sourceLink.addEventListener "click"
+                    ->:Void
+                        (ifLet [cachedInfo (dictGet cachedResults id)]
+                                (handleInfo cachedInfo)
+                            (queryId id cachedResults)))
+                (document.body.prepend sourceLink))))

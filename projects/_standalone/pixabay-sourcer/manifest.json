@@ -1,0 +1,34 @@
+{
+
+  "manifest_version": 2,
+  "name": "pixabay-sourcer",
+  "version": "0.0",
+
+  "description": "",
+
+  "icons": {
+    "48": "icons/icon-48.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://pixabay.com/photos/*/"],
+      "js": ["bin/browser-polyfill.js", "bin/main.js"]
+    }
+  ],
+  "background": {
+		"scripts": [
+			"bin/browser-polyfill.js",
+			"bin/background.js"
+		]
+	},
+  "browser_specific_settings": {
+		"gecko": {
+			"id": "{0d44525b-9803-4630-917d-585c3b538fcb}"
+		}
+	},
+	"permissions": [
+		"<all_urls>",
+		"storage",
+    "downloads"
+	]
+}

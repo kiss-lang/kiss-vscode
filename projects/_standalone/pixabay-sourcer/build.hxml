@@ -1,0 +1,12 @@
+-lib kiss
+-lib kiss-firefox
+-cp externs
+-cp src
+-dce full
+--each
+--main pixabay_sourcer.Main
+--js bin/main.js
+--next
+--main pixabay_sourcer.Background
+--js bin/background.js
+-cmd cp node_modules/webextension-polyfill/dist/browser-polyfill.js* bin/ && zip -r template.zip . -x *.git* -x *.hxml -x *.zip -x src/\* -x node_modules/\* -x libs/\* -x test.sh

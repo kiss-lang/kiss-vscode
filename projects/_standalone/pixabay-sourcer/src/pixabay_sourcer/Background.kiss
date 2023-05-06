@@ -1,0 +1,9 @@
+(function _main []
+    (API.browser.runtime.onMessage.addListener ->[:Message message sender sendResponse] 
+        (let [:Function sendResponse sendResponse]
+            (case message
+                ((object type "download" data [url])
+                    // TODO awaitLet the DownloadItem and send a nativemessage with the path and credit info
+                    (API.browser.downloads.download (objectWith [saveAs true] url)))
+                (never otherwise))
+            true)))

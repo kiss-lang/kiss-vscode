@@ -1,0 +1,5 @@
+bin/
+libs/
+node_modules/
+externs/
+*.zip
