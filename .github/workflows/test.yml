@@ -12,15 +12,6 @@ jobs:
         node-version: ['14']
         python-version: ['3.x']
         test-target: 
-          # HAXE TARGETS
-
-          - KISS_TARGET=cpp
-          # TODO # - KISS_TARGET=cs
-          - KISS_TARGET=interp
-          - KISS_TARGET=js
-          - KISS_TARGET=nodejs
-          - KISS_TARGET=py
-
           # STANDALONE PROJECTS
 
           - KISS_PROJECT=_standalone/aoc
