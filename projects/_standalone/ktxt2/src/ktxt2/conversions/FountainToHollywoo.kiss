@@ -56,6 +56,7 @@
                     "*" ""))\n"))
 
 (function isScreenLine [:String block]
+    (when (block.startsWith "SUPER:") (return false))
     (= 1 .length (filter (block.split "\n"))))
 
 (function doWithCharacters [:String thing :String args]
