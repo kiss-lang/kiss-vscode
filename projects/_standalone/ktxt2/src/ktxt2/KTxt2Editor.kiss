@@ -37,7 +37,7 @@
         ,@b
         (setState ,s)))
 
-(function main []
+(function _main []
     (set _vscode (EditorExterns.acquireVsCodeApi))
     (set window EditorExterns.window)
     (set document window.document)

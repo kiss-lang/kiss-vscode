@@ -41,4 +41,8 @@ typedef Disposable = {
 };
 
 @:build(kiss.Kiss.build())
-class KTxt2Editor {}
+class KTxt2Editor {
+    static function main() {
+        _main();
+    }
+}

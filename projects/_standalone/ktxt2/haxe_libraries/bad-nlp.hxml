@@ -1,0 +1,7 @@
+# @install: lix --silent download "gh://github.com/kiss-lang/bad-nlp#109301d23c4f1e9df34cd570f4249d6b9120b561" into bad-nlp/0.0.0/github/109301d23c4f1e9df34cd570f4249d6b9120b561
+# @run: haxelib run-dir bad-nlp "${HAXE_LIBCACHE}/bad-nlp/0.0.0/github/109301d23c4f1e9df34cd570f4249d6b9120b561"
+-lib haxe-strings
+-lib kiss
+-lib yaml
+-cp ${HAXE_LIBCACHE}/bad-nlp/0.0.0/github/109301d23c4f1e9df34cd570f4249d6b9120b561/src/
+-D bad-nlp=0.0.0

@@ -35,13 +35,14 @@
                         (and (isUpperCase name) {(stream.dropWhitespace) !(stream.isEmpty)}))
         ->stream
             (let [name (whenLet [(Some name) (stream.takeLine)] (.trim (name.replace "(CONT'D)" "")))
-                    &mut output ""]
+                    &mut output []]
                 (loop
                     (let [wryly (ifLet [(Some w) (stream.takeBetween "(" ")\n")] w "")
                             line (ifLet [(Some l) (stream.takeLine)] (l.trim) (break))]
                         (when line
-                            (+= output "NORMALSPEECH \"${name}\" \"${wryly}\" ##\"${line}\"##\n"))))
-                output)))
+                            (output.push "NORMALSPEECH \"${name}\" \"${wryly}\" ##\"${line}\"##"))))
+                (output.push "")
+                (output.join "\n"))))
 
 (registerConversion
     (new ktxt2.StreamConversion "Label" "fountain" "hollywoo"
