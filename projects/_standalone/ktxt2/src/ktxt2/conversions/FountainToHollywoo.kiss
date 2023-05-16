@@ -79,3 +79,8 @@
             (let [text (stream.expect "super text" ->(stream.takeLine))]
                 "TIMEDSUPERTEXT ##\"${text}\"## ##\"${text}\"##")
         }))
+
+(registerConversion
+    (new ktxt2.StreamConversion "Delay" "fountain" "hollywoo"
+        ->stream (isScreenLine stream.content)
+        ->stream "DELAY ##\"$(stream.content.trim)\"##"))
