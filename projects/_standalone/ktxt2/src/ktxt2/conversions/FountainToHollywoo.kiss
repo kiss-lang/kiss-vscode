@@ -69,3 +69,13 @@
 
 (doWithCharacters "Add" "<position key> <facing>")
 (doWithCharacters "Remove" "")
+
+(registerConversion
+    (new ktxt2.StreamConversion "Timed super text" "fountain" "hollywoo"
+        ->stream (stream.startsWith "SUPER:")
+        ->stream {
+            (stream.dropString "SUPER:")
+            (stream.dropWhitespace)
+            (let [text (stream.expect "super text" ->(stream.takeLine))]
+                "TIMEDSUPERTEXT ##\"${text}\"## ##\"${text}\"##")
+        }))
