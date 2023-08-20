@@ -4,6 +4,8 @@
 @(:expose "activate")
 (function activate [:ExtensionContext context]
     (printThroughInfoMessage)
+    (awaitLetCatchThroughErrorMessage)
+    (allowRuntimeConversion)
     (load "commands/ExtensionTools.kiss")
     (load "commands/KissTools.kiss")
     (load "commands/Lines.kiss"))
