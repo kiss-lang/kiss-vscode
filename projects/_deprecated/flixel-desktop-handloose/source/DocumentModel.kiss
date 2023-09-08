@@ -31,7 +31,8 @@
                     (unless (filesLearnedFrom.exists path)
                         (print "learning from $file")
                         (learnFrequencies (File.getContent file))
-                        (dictSet filesLearnedFrom path true))))))
+                        (dictSet filesLearnedFrom path true))))
+        null))
 
 (method learnFrequencies [:String str]
     (let [chars (str.split "")]
@@ -41,6 +42,7 @@
                 (doFor [following c] (pairs chars)
                     (incFrequency charFrequencies c following)))
                 // TODO learn word frequencies
+                null
                 )))
 
 (prop :FlxRandom r (new FlxRandom))
