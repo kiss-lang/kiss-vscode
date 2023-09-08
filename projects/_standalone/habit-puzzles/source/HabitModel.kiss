@@ -9,7 +9,6 @@
 (defNew [&prop :String textFile]
     (let [s (Stream.fromFile textFile)
             &mut lastHeader ""]
-        // TODO could be whileLet
         (loop
             (case (s.takeLine)
                 ((Some "DAILY")
@@ -183,7 +182,6 @@
                 (when (= today 0) (set today 7))
                 (and !(= lastDayDone (todayString)) (contains days today))))
         ((Monthly days lastDayDone)
-            // TODO logic
             (let [&mut nextDay
                         (DateTime.fromDate (Date.now))
                     oneDayInterval (DateTimeInterval.create (DateTime.make 1970 1 1) (DateTime.make 1970 1 2))

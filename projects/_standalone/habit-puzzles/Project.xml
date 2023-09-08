@@ -42,6 +42,10 @@
 	<haxelib name="kiss-flixel" />
 	<haxelib name="datetime" />
 	<haxelib name="re-flex" />
+	
+	<haxeflag name="-w" value="-WDeprecated" />
+
+	
 	<assets path="assets" />
 	<assets path="puzzles/Photos by Trent Nelson" unless="CI_OS_NAME" />
 	<assets path="puzzles/neuro" if="debug" />
