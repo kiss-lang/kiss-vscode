@@ -28,10 +28,10 @@
     (withMutProperties [filesLearnedFrom]
         (walkDirectory "" (FileSystem.absolutePath "")
             ->file (when (= (Path.extension file) (Path.extension path))
-                    (unless (filesLearnedFrom.exists path)
+                    (unless (filesLearnedFrom.exists file)
                         (print "learning from $file")
                         (learnFrequencies (File.getContent file))
-                        (dictSet filesLearnedFrom path true))))
+                        (dictSet filesLearnedFrom file true))))
         null))
 
 (method learnFrequencies [:String str]
