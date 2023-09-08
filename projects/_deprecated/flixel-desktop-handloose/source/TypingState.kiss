@@ -1,10 +1,13 @@
 (var SPRITE_SPACING 20)
 (var SPRITE_SIZE 100)
 (var TEXT_SIZE 24)
+(savedVar :Int DOC_TEXT_SIZE 48)
 (prop &mut :FlxText docText null)
 (method &override :Void create []
     #{
         super.create();
+
+		FlxG.fullscreen = true;
 
 		var background = new FlxSprite();
 		background.makeGraphic(1280, 720, FlxColor.BLACK);
@@ -19,8 +22,8 @@
 		// Split the screen into text area and dance area:
 		var splitX = SPRITE_SPACING * 5 + SPRITE_SIZE * 4;
 		background.drawLine(splitX, 0, splitX, FlxG.height);
-		docText = new FlxText(splitX, 0, "", TEXT_SIZE);
-		docText.setFormat(null, 8, FlxColor.WHITE);
+		docText = new FlxText(splitX, 0, "", DOC_TEXT_SIZE);
+		docText.setFormat(null, DOC_TEXT_SIZE, FlxColor.WHITE);
 	
 		add(background);
 		add(docText);
@@ -97,6 +100,8 @@
 	(set _model m)
 	(updateDocText))
 
+(savedVar :Float speedMod (/ 1 16))
+
 (method :FlxSprite makeTriangleSprite [:ArrowDir dir :String text :Int y &opt :Void->Void action]
     #{
 		var spr = new ActionSprite(action, dir);
@@ -137,7 +142,7 @@
 
         if (action != null) {
 			actionSprites.add(spr);
-			FlxTween.linearMotion(spr, spr.x, spr.y, spr.x, FlxG.height, 200, false, {
+			FlxTween.linearMotion(spr, spr.x, spr.y, spr.x, FlxG.height, FlxG.height / ARROW_DELAY * speedMod, false, {
 				onComplete: (_) -> {
 					spr.kill();
 				}
