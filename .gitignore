@@ -1,5 +1,3 @@
 bin/
-externLog.txt
-*.memoized
-.temp/
-*.pyc
+*.vsix
+node_modules/

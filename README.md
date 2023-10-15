@@ -1,13 +1,13 @@
-# Kiss
+# kiss-vscode README
+Experimental Kiss support for VSCode
 
-*A type-safe, compiled Lisp for Haxe programs*
+## Features
 
-[README](kiss/README.md)
+* Syntax highlighting for .kiss files
+* Commands for editing kiss code
 
-## Monorepo
+## Extension Settings
 
-This repo contains subtrees for every project in the kiss-lang organization.
+## Known Issues
 
-All contributions should be made through this repo.
-
-All CI is handled through this repo.
+## Release Notes

@@ -1,6 +1,0 @@
-[submodule "projects/_deprecated/godot-squash-the-creeps-3d/addons/haxe"]
-	path = projects/_deprecated/godot-squash-the-creeps-3d/addons/haxe
-	url = https://github.com/HaxeGodot/editor-plugin.git
-[submodule "projects/_standalone/nat-godot-playground/addons/haxe"]
-	path = projects/_standalone/nat-godot-playground/addons/haxe
-	url = https://github.com/HaxeGodot/editor-plugin.git
