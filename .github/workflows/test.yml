@@ -11,81 +11,19 @@ jobs:
         haxe-version: [4.3.0]
         node-version: ['14']
         python-version: ['3.x']
-        test-target: 
-          # STANDALONE PROJECTS
-
-          - KISS_PROJECT=_standalone/aoc
-          # TODO # - KISS_PROJECT=_standalone/duplicate-text-editor
-          - KISS_PROJECT=_standalone/habit-puzzles
-          # TODO # - KISS_PROJECT=_standalone/iso-rpg-engine
-          - KISS_PROJECT=_standalone/kiss-cli-tests
-          - KISS_PROJECT=_standalone/kiss-vscode
-          # TODO # - KISS_PROJECT=_standalone/ksr-express
-          # TODO # - KISS_PROJECT=_standalone/ktxt2
-          - KISS_PROJECT=_standalone/nat-flixel-playground
-          # DEPRECATED # - KISS_PROJECT=_standalone/nat-globelet-playground
-          # DEPRECATED # - KISS_PROJECT=_standalone/nat-godot-playground
-          - KISS_PROJECT=_standalone/pdf-salad
-          # TODO # - KISS_PROJECT=_standalone/smart-stretch-reminder
-          # TODO # - KISS_PROJECT=_standalone/tig-spy
-
-          # HAXELIBS
-
-          - KISS_PROJECT=bad-nlp
-          # TODO # - KISS_PROJECT=bump-version
-          # TODO # - KISS_PROJECT=hollywoo
-          # TODO # - KISS_PROJECT=hollywoo-flixel
-          - KISS_PROJECT=kill-carriage-return
-          # TODO # - KISS_PROJECT=kiss-express
-          # TODO # - KISS_PROJECT=kiss-firefox
-          # TODO # - KISS_PROJECT=kiss-flixel
-          # TODO # - KISS_PROJECT=kiss-godot
-          # TODO # - KISS_PROJECT=kiss-spaced-rep
-          - KISS_PROJECT=kiss-tools
-          # TODO # - KISS_PROJECT=kiss-vscode-api
-          # TODO # - KISS_PROJECT=lets-read
-          - KISS_PROJECT=nat-archive-tool
-          # TODO # - KISS_PROJECT=prokgen
-          # TODO # - KISS_PROJECT=re-flex
-          # skip requests-externs
     runs-on: ${{ matrix.os }}
     env:
       CI_OS_NAME: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
-      # Set up Kiss runtimes:
-
-      # nodejs
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-
-      # lix
+      - run: npm install vsce
       - uses: kiss-lang/setup-lix@main
         with:
           lix-version: 15.12.0
-
-      # python
-      - uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      # mono
-      - run: brew install mono || brew link --overwrite mono
-        if: ${{ matrix.os == 'macos-latest' }}
-      - run: choco install mono
-        if: ${{ matrix.os == 'windows-latest' }}
-      - run: |
-          # instructions for ubuntu 20.04 from here: https://www.mono-project.com/download/stable/#download-lin
-          sudo apt install gnupg ca-certificates
-          sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-          echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
-          sudo apt update
-          sudo apt install mono-devel
-        if: ${{ matrix.os == 'ubuntu-latest' }}
-
-      # run target test:
-      - run: echo "${{ matrix.test-target }}" >> $GITHUB_ENV
+      - run: lix download
       - run: ./test.sh
         shell: bash
       
