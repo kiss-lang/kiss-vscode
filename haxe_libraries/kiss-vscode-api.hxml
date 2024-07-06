@@ -1,8 +1,8 @@
-# @install: lix --silent download "gh://github.com/kiss-lang/kiss-vscode-api#c6eaec798211f9b68cf71e686874ae0ce9c2ca88" into kiss-vscode-api/0.0.0/github/c6eaec798211f9b68cf71e686874ae0ce9c2ca88
-# @run: haxelib run-dir kiss-vscode-api "${HAXE_LIBCACHE}/kiss-vscode-api/0.0.0/github/c6eaec798211f9b68cf71e686874ae0ce9c2ca88"
+# @install: lix --silent download "gh://github.com/kiss-lang/kiss-vscode-api#872af5d2eb9cdde9a6cb8accc48abbe7d0007174" into kiss-vscode-api/0.0.0/github/872af5d2eb9cdde9a6cb8accc48abbe7d0007174
+# @run: haxelib run-dir kiss-vscode-api "${HAXE_LIBCACHE}/kiss-vscode-api/0.0.0/github/872af5d2eb9cdde9a6cb8accc48abbe7d0007174"
 -lib hxnodejs
 -lib kiss
 -lib re-flex
 -lib vscode
--cp ${HAXE_LIBCACHE}/kiss-vscode-api/0.0.0/github/c6eaec798211f9b68cf71e686874ae0ce9c2ca88/src/
+-cp ${HAXE_LIBCACHE}/kiss-vscode-api/0.0.0/github/872af5d2eb9cdde9a6cb8accc48abbe7d0007174/src/
 -D kiss-vscode-api=0.0.0
