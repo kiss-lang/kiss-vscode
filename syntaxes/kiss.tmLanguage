@@ -47,7 +47,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?:\()((?i:defmacro|defMacro|defun|function|defmethod|method|def[A-Z]\S+))\s+((?:\w|[+\-<>/*&amp;=.?!$%:@\[\]^{}~#|])+)</string>
+			<string>(?:\()((?i:defmacro|defMacro|defun|function|defmethod|method|lambda|def[A-Z]\S+))\s+((?:\w|[+\-<>/*&amp;=.,?!$%:@\[\]^{}~#|])+)</string>
 			<key>name</key>
 			<string>meta.function.kiss</string>
 		</dict>
@@ -72,7 +72,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?:\()((?i:defvar|defprop|var|prop))\s+((?:\w|[+\-<>/*&amp;=.?!$%:@\[\]^{}~#|])+)</string>
+			<string>(?:\()((?i:defvar|defprop|var|prop|userProp|savedVar))\s+((?:\w|[+\-<>/*&amp;=.,?!$%:@\[\]^{}~#|])+)</string>
 		</dict>
 		<!-- <dict>
 			<key>captures</key>
