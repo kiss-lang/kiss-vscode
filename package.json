@@ -40,6 +40,11 @@
 				"key": "Ctrl+; Ctrl+u"
 			},
 			{
+				"command": "kiss-vscode.showCorrespondingFile",
+				"mac": "Cmd+; Cmd+f",
+				"key": "Ctrl+; Ctrl+f"
+			},
+			{
 				"command": "kiss-vscode.evalAndPrint",
 				"mac": "Cmd+; Cmd+e",
 				"key": "Ctrl+; Ctrl+e"
@@ -48,11 +53,6 @@
 				"command": "kiss-vscode.newKissClass",
 				"mac": "Cmd+; Cmd+n",
 				"key": "Ctrl+; Ctrl+n"
-			},
-			{
-				"command": "kiss-vscode.showCorrespondingFile",
-				"mac": "Cmd+; Cmd+f",
-				"key": "Ctrl+; Ctrl+f"
 			},
 			{
 				"command": "kiss-vscode.insertUTestCase",
@@ -80,16 +80,16 @@
 				"command": "kiss-vscode.testAndUpdateExtension"
 			},
 			{
+				"title": "kiss-vscode: Open the corresponding header/source file to this one",
+				"command": "kiss-vscode.showCorrespondingFile"
+			},
+			{
 				"title": "kiss-vscode: Evaluate and print a kiss expression's value",
 				"command": "kiss-vscode.evalAndPrint"
 			},
 			{
 				"title": "kiss-vscode: Create a new kiss class",
 				"command": "kiss-vscode.newKissClass"
-			},
-			{
-				"title": "kiss-vscode: Open the corresponding .kiss/.hx file to this one",
-				"command": "kiss-vscode.showCorrespondingFile"
 			},
 			{
 				"title": "kiss-vscode: Generate a UTest test case in this .hx/.kiss file",

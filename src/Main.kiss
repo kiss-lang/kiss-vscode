@@ -7,5 +7,6 @@
     (awaitLetCatchThroughErrorMessage)
     (allowRuntimeConversion)
     (load "commands/ExtensionTools.kiss")
+    (load "commands/CodeTools.kiss")
     (load "commands/KissTools.kiss")
     (load "commands/Lines.kiss"))

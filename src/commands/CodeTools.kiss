@@ -1,0 +1,24 @@
+(function correspondingFileUri [:String sourceOrHeaderFile]
+    (let [base
+                (sourceOrHeaderFile.withoutExtension)
+            ext
+                (sourceOrHeaderFile.extension)
+            correspondingExts
+                (case ext
+                    // Kiss
+                    ("hx" ["kiss" "hollywoo"])
+                    ("kiss" ["hx"])
+                    ("hollywoo" ["hx"])
+                    // C/C++
+                    ("h" ["c" "cpp"])
+                    ("hpp" ["cpp"])
+                    ("cpp" ["h" "hpp"])
+                    (otherwise (throw "No corresponding extensions for .$ext")))]
+        (doFor ext correspondingExts
+            (let [uri (Uri.file "${base}.${ext}")]
+                (when (sys.FileSystem.exists uri.fsPath)
+                    (return uri))))
+        (throw "No corresponding file for $sourceOrHeaderFile")))
+
+(defCommand context showCorrespondingFile "Open the corresponding header/source file to this one" "C-; C-f" []
+    (showTextDocument (correspondingFileUri .fileName .document activeTextEditor)))

@@ -40,21 +40,6 @@ class ${className} {}
                     (awaitLet [_ (showTextDocument (Uri.file kissFile) (object viewColumn ViewColumn.Beside))]
                         (executeCommand "workbench.action.keepEditor")))))))
 
-(function correspondingFile [:String kissOrHxFile]
-    (let [base
-                (kissOrHxFile.withoutExtension)
-            ext
-                (kissOrHxFile.extension)
-            correspondingExt
-                (case ext
-                    ("hx" "kiss")
-                    ("kiss" "hx")
-                    (otherwise (throw "No corresponding file for ${kissOrHxFile}")))]
-        "${base}.${correspondingExt}"))
-
-(defCommand context showCorrespondingFile "Open the corresponding .kiss/.hx file to this one" "C-; C-f" []
-    (showTextDocument (Uri.file (correspondingFile .fileName .document activeTextEditor))))
-
 (defCommand context insertUTestCase "Generate a UTest test case in this .hx/.kiss file" "C-; C-c" []
     (awaitLet [testName (inputBox)
                 &sync testName
@@ -64,7 +49,7 @@ class ${className} {}
         _test${testName}();
     }
     ")
-                _ (showTextDocument (Uri.file (correspondingFile .fileName .document activeTextEditor)))
+                _ (showTextDocument (correspondingFileUri .fileName .document activeTextEditor))
                 &sync pos (activeTextEditor.document.positionAt .length (activeTextEditor.document.getText))
                 _ (insertAt pos
 "
