@@ -12,6 +12,7 @@ import re_flex.R;
 using haxe.io.Path;
 using StringTools;
 using uuid.Uuid;
+using hx.strings.Strings;
 
 @:build(kiss.Kiss.build())
 class Main {}

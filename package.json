@@ -65,7 +65,7 @@
 				"key": "Ctrl+; Ctrl+m"
 			},
 			{
-				"command": "kiss-vscode.sortLinesSync",
+				"command": "kiss-vscode.sortLinesSyncDefault",
 				"mac": "Cmd+; Cmd+s",
 				"key": "Ctrl+; Ctrl+s"
 			}
@@ -102,6 +102,14 @@
 			{
 				"title": "kiss-vscode: Sort the selected text lines using a (String,String)->Int comparator function",
 				"command": "kiss-vscode.sortLinesSync"
+			},
+			{
+				"title": "kiss-vscode: Sort the selected lines lexicographically",
+				"command": "kiss-vscode.sortLinesSyncDefault"
+			},
+			{
+				"title": "kiss-vscode: Sort the selected lines lexicographically from the end of each line",
+				"command": "kiss-vscode.sortLinesSyncEOL"
 			}
 		],
 		"languages": [
