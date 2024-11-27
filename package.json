@@ -1,6 +1,6 @@
 {
 	"main": "bin/extension.js",
-	"name": "kiss-vscode",
+	"name": "kiss-lang-vscode",
 	"description": "Kiss language plugin",
 	"repository": {
 		"url": "https://github.com/NQNStudios/kisslang.git",
@@ -13,7 +13,7 @@
 	],
 	"extensionPack": [
 	],
-	"publisher": "NQNStudios",
+	"publisher": "kiss-lang",
 	"contributes": {
 		"grammars": [
 			{
@@ -131,7 +131,7 @@
 	"devDependencies": {
 		"vsce": "^2.15.0"
 	},
-	"version": "0.0.18",
+	"version": "0.1.0",
 	"activationEvents": [],
-	"displayName": "kiss-vscode"
+	"displayName": "Kiss VSCode"
 }
