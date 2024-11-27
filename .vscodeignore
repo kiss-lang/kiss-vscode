@@ -2,4 +2,6 @@
 bin/*.map
 src
 build.hxml
+haxe_libraries
+haxelib.json
 test.sh
