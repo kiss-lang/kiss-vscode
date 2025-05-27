@@ -11,8 +11,7 @@
 		"Programming Languages",
 		"Extension Packs"
 	],
-	"extensionPack": [
-	],
+	"extensionPack": [],
 	"publisher": "kiss-lang",
 	"contributes": {
 		"grammars": [
@@ -34,81 +33,81 @@
 		],
 		"keybindings": [
 			{
-				"command": "kiss-vscode.updateExtension",
+				"command": "kiss-lang-vscode.updateExtension",
 				"mac": "Cmd+; Cmd+u",
 				"key": "Ctrl+; Ctrl+u"
 			},
 			{
-				"command": "kiss-vscode.showCorrespondingFile",
+				"command": "kiss-lang-vscode.showCorrespondingFile",
 				"mac": "Cmd+; Cmd+f",
 				"key": "Ctrl+; Ctrl+f"
 			},
 			{
-				"command": "kiss-vscode.evalAndPrint",
+				"command": "kiss-lang-vscode.evalAndPrint",
 				"mac": "Cmd+; Cmd+e",
 				"key": "Ctrl+; Ctrl+e"
 			},
 			{
-				"command": "kiss-vscode.newKissClass",
+				"command": "kiss-lang-vscode.newKissClass",
 				"mac": "Cmd+; Cmd+n",
 				"key": "Ctrl+; Ctrl+n"
 			},
 			{
-				"command": "kiss-vscode.insertUTestCase",
+				"command": "kiss-lang-vscode.insertUTestCase",
 				"mac": "Cmd+; Cmd+c",
 				"key": "Ctrl+; Ctrl+c"
 			},
 			{
-				"command": "kiss-vscode.mapLinesSync",
+				"command": "kiss-lang-vscode.mapLinesSync",
 				"mac": "Cmd+; Cmd+m",
 				"key": "Ctrl+; Ctrl+m"
 			},
 			{
-				"command": "kiss-vscode.sortLinesSyncDefault",
+				"command": "kiss-lang-vscode.sortLinesSyncDefault",
 				"mac": "Cmd+; Cmd+s",
 				"key": "Ctrl+; Ctrl+s"
 			}
 		],
 		"commands": [
 			{
-				"title": "kiss-vscode: Update and reinstall the Kiss-Vscode extension you are editing",
-				"command": "kiss-vscode.updateExtension"
+				"title": "kiss-lang-vscode: Update and reinstall the Kiss-Vscode extension you are editing",
+				"command": "kiss-lang-vscode.updateExtension"
 			},
 			{
-				"title": "kiss-vscode: Check test.sh, then update and reinstall the kiss-vscode extension you are editing",
-				"command": "kiss-vscode.testAndUpdateExtension"
+				"title": "kiss-lang-vscode: Check test.sh, then update and reinstall the kiss-vscode extension you are editing",
+				"command": "kiss-lang-vscode.testAndUpdateExtension"
 			},
 			{
-				"title": "kiss-vscode: Open the corresponding header/source file to this one",
-				"command": "kiss-vscode.showCorrespondingFile"
+				"title": "kiss-lang-vscode: Open the corresponding header/source file to this one",
+				"command": "kiss-lang-vscode.showCorrespondingFile"
 			},
 			{
-				"title": "kiss-vscode: Evaluate and print a kiss expression's value",
-				"command": "kiss-vscode.evalAndPrint"
+				"title": "kiss-lang-vscode: Evaluate and print a kiss expression's value",
+				"command": "kiss-lang-vscode.evalAndPrint"
 			},
 			{
-				"title": "kiss-vscode: Create a new kiss class",
-				"command": "kiss-vscode.newKissClass"
+				"title": "kiss-lang-vscode: Create a new kiss class",
+				"command": "kiss-lang-vscode.newKissClass"
 			},
 			{
-				"title": "kiss-vscode: Generate a UTest test case in this .hx/.kiss file",
-				"command": "kiss-vscode.insertUTestCase"
+				"title": "kiss-lang-vscode: Generate a UTest test case in this .hx/.kiss file",
+				"command": "kiss-lang-vscode.insertUTestCase"
 			},
 			{
-				"title": "kiss-vscode: Transform the selected text lines using a String->String kiss function",
-				"command": "kiss-vscode.mapLinesSync"
+				"title": "kiss-lang-vscode: Transform the selected text lines using a String->String kiss function",
+				"command": "kiss-lang-vscode.mapLinesSync"
 			},
 			{
-				"title": "kiss-vscode: Sort the selected text lines using a (String,String)->Int comparator function",
-				"command": "kiss-vscode.sortLinesSync"
+				"title": "kiss-lang-vscode: Sort the selected text lines using a (String,String)->Int comparator function",
+				"command": "kiss-lang-vscode.sortLinesSync"
 			},
 			{
-				"title": "kiss-vscode: Sort the selected lines lexicographically",
-				"command": "kiss-vscode.sortLinesSyncDefault"
+				"title": "kiss-lang-vscode: Sort the selected lines lexicographically",
+				"command": "kiss-lang-vscode.sortLinesSyncDefault"
 			},
 			{
-				"title": "kiss-vscode: Sort the selected lines lexicographically from the end of each line",
-				"command": "kiss-vscode.sortLinesSyncEOL"
+				"title": "kiss-lang-vscode: Sort the selected lines lexicographically from the end of each line",
+				"command": "kiss-lang-vscode.sortLinesSyncEOL"
 			}
 		],
 		"languages": [
