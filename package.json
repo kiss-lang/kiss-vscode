@@ -130,7 +130,7 @@
 	"devDependencies": {
 		"vsce": "^2.15.0"
 	},
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"activationEvents": [],
 	"displayName": "Kiss VSCode"
 }
