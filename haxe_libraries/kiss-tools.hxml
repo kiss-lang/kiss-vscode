@@ -1,4 +1,4 @@
-# @install: lix --silent download "gh://github.com/kiss-lang/kiss-tools#b0b90316ee5bda93f65c193e1d5898cbfea6b034" into kiss-tools/0.0.0/github/b0b90316ee5bda93f65c193e1d5898cbfea6b034
+# @install: lix --silent download "gh://github.com/kiss-lang/kiss-tools#532b74998a0f9046a1870b01a07cfdc4be5fb758" into kiss-tools/0.0.0/github/532b74998a0f9046a1870b01a07cfdc4be5fb758
 -lib kiss
--cp ${HAXE_LIBCACHE}/kiss-tools/0.0.0/github/b0b90316ee5bda93f65c193e1d5898cbfea6b034/src/
+-cp ${HAXE_LIBCACHE}/kiss-tools/0.0.0/github/532b74998a0f9046a1870b01a07cfdc4be5fb758/src/
 -D kiss-tools=0.0.0
