@@ -39,3 +39,44 @@
 
 (defCommand context sortLinesSyncEOL "Sort the selected lines lexicographically from the end of each line" "" []
     (_sortLinesSync (selectedText) ->[:String s1 :String s2] (Reflect.compare (s1.reverse) (s2.reverse))))
+
+// Example: editMonster(monster, MONSTER) -> editItem(item, ITEM)
+(defCommand context findReplaceTokenMatchCase "Find and replace a token, matching case" "" []
+    (localVar &mut idx 0)
+    (localVar &mut output "")
+    (awaitLet [find (inputBox)
+                replace (inputBox)
+                &sync findLower (find.toLowerCase)
+                &sync text (selectedText)
+                &sync textLower (text.toLowerCase)
+                &sync textHits []
+                &sync textHitTokens []]
+        (unless text (print "No text selected!") (return))
+        (unless find (print "Nothing to find!") (return))
+        (while (< idx text.length)
+            (set idx (textLower.indexOf findLower idx))
+            (when (= -1 idx) (break))
+            (textHits.push idx)
+            (textHitTokens.push (text.substr idx find.length))
+            (+= idx find.length))
+        (set idx 0)
+        (doFor [hit :String hitToken] (zip textHits textHitTokens)
+            (+= output (text.substr idx (- hit idx)))
+            (cond
+                // all caps
+                ((hitToken.isUpperCase)
+                    (+= output (replace.toUpperCase)))
+                // all lower
+                ((hitToken.isLowerCase)
+                    (+= output (replace.toLowerCase)))
+                // first letter capitalized
+                ((.isUpperCase (hitToken.charAt 0))
+                    (+= output (replace.toUpperCamel))))
+            (set idx (+ hit find.length)))
+        (+= output (text.substr idx))
+        (.edit activeTextEditor
+            (lambda [e]
+                (let [editor activeTextEditor]
+                    (e.delete editor.selection)
+                    (e.insert editor.selection.active output))))
+        (return)))
