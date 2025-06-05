@@ -108,6 +108,14 @@
 			{
 				"title": "kiss-lang-vscode: Sort the selected lines lexicographically from the end of each line",
 				"command": "kiss-lang-vscode.sortLinesSyncEOL"
+			},
+			{
+				"title": "kiss-lang-vscode: Find and replace a token, matching case",
+				"command": "kiss-lang-vscode.findReplaceTokenMatchCase"
+			},
+			{
+				"title": "kiss-lang-vscode: Find text suffixed by a non-negative integer, and replace it, incrementing the number by line",
+				"command": "kiss-lang-vscode.findReplaceIncrement"
 			}
 		],
 		"languages": [
@@ -130,7 +138,7 @@
 	"devDependencies": {
 		"vsce": "^2.15.0"
 	},
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"activationEvents": [],
 	"displayName": "Kiss VSCode"
 }

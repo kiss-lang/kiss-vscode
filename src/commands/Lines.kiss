@@ -80,3 +80,37 @@
                     (e.delete editor.selection)
                     (e.insert editor.selection.active output))))
         (return)))
+
+(defCommand context findReplaceIncrement "Find text suffixed by a non-negative integer, and replace it, incrementing the number by line" "" []
+    (localVar &mut outputLines [])
+    (localVar &mut lineFound 0)
+    (awaitLet [findNumStr (inputBox)
+                &sync length findNumStr.length
+                &sync text (selectedText)]
+        (unless text (print "No text selected!") (return))
+        (unless findNumStr (print "Nothing to find!") (return))
+        // Find where the number suffix starts
+        (let [&mut numStartIdx 0]
+            (while (< numStartIdx length)
+            	(when (.contains "0123456789" (findNumStr.charAt numStartIdx))
+                    (break))
+                ++numStartIdx)
+            (when (>= numStartIdx length) (print "text must be suffixed by a non-negative integer!") (return))
+            
+            (let [prefix (findNumStr.substr 0 numStartIdx)
+                    num (Std.parseInt (findNumStr.substr numStartIdx))
+                    lines (text.split "\n")]
+                (doFor line lines
+                    (if (line.contains findNumStr)
+                            {
+                                (let [newStr "${prefix}$(+ num lineFound)"]
+                                    (outputLines.push (line.replace findNumStr newStr)))
+                                ++lineFound
+                            }
+                        (outputLines.push line)))))
+        (.edit activeTextEditor
+            (lambda [e]
+                (let [editor activeTextEditor]
+                    (e.delete editor.selection)
+                    (e.insert editor.selection.active (outputLines.join "\n")))))
+        (return)))
